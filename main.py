@@ -32,6 +32,10 @@ def main():
     glVertex(207, 345)
     glVertex(233, 330)
     glVertex(230, 360)
+    glVertex(250, 380)
+    glVertex(220, 385)
+    glVertex(205, 410)
+    glVertex(193, 383)
 
     glFinish() #Escribiendo la ventana.
 
