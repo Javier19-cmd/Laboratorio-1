@@ -145,8 +145,9 @@ def glVertex(x, y): #Función que pueda cambiar el color de un punto de la panta
     global ancho, alto, equis, ye #Variables globales que se usarán para definir el área de la imagen sobre la que se va a poder dibujar el punto.
 
     #Verifiando las propiedades del viewport.
-    print(ancho, alto, equis, ye)
+    #print(ancho, alto, equis, ye)
     
+    """
     #Obteniendo el centro del viewport.
     x0 = int(equis + (ancho/2))
     y0 = int(ye + (alto/2))
@@ -159,8 +160,9 @@ def glVertex(x, y): #Función que pueda cambiar el color de un punto de la panta
     print("Posiciones del punto trasladado ", movx, movy)
 
     #print("Hola ", movx, movy) #Debugging.
+    """
 
-    Rend.Vertex(movx, movy) #Creando el punto.
+    Rend.Vertex(x, y) #Creando el punto.
 
 def glColor(r, g, b): #Función con la que se pueda cambiar el color con el que funciona glVertex(). Los parámetros deben ser números en el rango de 0 a 1.
     
