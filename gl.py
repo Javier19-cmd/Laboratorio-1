@@ -25,10 +25,6 @@ gP = 0
 bP = 0
 fondo = 0
 
-#Ubicaciones del viewport.
-equis = 0
-ye = 0
-
 #Variable global para la función glColor.
 Color = 0
 
@@ -65,56 +61,15 @@ def glCreateWindow(width, height): #Preguntar de esta función.
     #except: #Si en caso se escribió una letra en vez de número, entonces se imprime esta excepción.
      #   print("Se ingresó una letra en vez de número.")
 
-def glViewPort(x, y, width, height): #Se usará para definir el área de la imagen sobre la que se va a poder dibujar.
-    global ancho, alto, equis, ye #Variables globales que se usarán para definir el área de la imagen sobre la que se va a poder dibujar.
-
-    #Todas las variables que se reciben se guardan en variables globales.
-    ancho = width
-    alto = height
-    equis = x
-    ye = y
-
-    colorV = color(0.4, 0.8, 0.08) #Creando el color del viewport.
-
-    Rend.colorViewPort(colorV) #Recibiendo el color del viewport.
-
-    #Verificando que las dimensiones del viewport sean múltiplos de 4.
-    if ancho % 4 == 1 and alto % 4 == 1:
-        Rend.View(equis, ye, ancho, alto)
-    else: 
-        print("Error")
-
-    #Rend.View(equis, ye, ancho, alto) #Creando el viewport.
-#Variables para crear la ventana.
-#dimensiones = [glViewPort(1, 2, 100, 200)] #Se inicializan las dimensiones de la ventana en una lista.
-#Imprimiendo las dimensiones de la imagen.
-#print(dimensiones)
-
-#ancho = dimensiones[0][2] #Sacando el ancho de la imagen.
-#alto = dimensiones[0][3] #Sacando el alto de la imagen.
 
 #Preguntar si esta función lo que hace es llenar por primera vez el color de la pantalla.
 def glClear(): #Se usará para que llene el mapa de bits con un solo color.   
     global fondo #Variable global para el color del fondo de pantalla.
-
-    #print("Colores en glClear ", color(rP, gP, bP)) #Imprimiendo el color que se le pasa.
-    
-    # if rP < 0 or gP < 0 or bP < 0: #Si los colores son menores a 0, entonces se imprime un error.
-    #     print("Error")
-    # elif rP > 1 or gP > 1 or bP > 1:
-    #     print("Error")
-    # else: #Si todo está bien, entonces se llena el mapa de bits con el color que se le pasa.
-    #     #print(color(rP, gP, bP))
     
     fondo = color(rP, gP, bP) #Creando el color de la línea.
 
     Rend.recibirColorFondo(fondo) #Recibiendo el color del fondo.
     Rend.Framebuffer() #Llenando el framebuffer de la pantalla.
-
-    #Debugging.
-    #print(anchoV)
-    #print(altoV) 
-    #print(Rend.Render.framebuffer)
 
 def glClearColor(r, g, b): #Función con la que se pueda cambiar el color con el que funciona glClear(). Los parámetros deben ser números en el rango de 0 a 1.
     
@@ -122,46 +77,17 @@ def glClearColor(r, g, b): #Función con la que se pueda cambiar el color con el
 
     #global Render #Se usa para poder acceder a la variable global render.
     
-    #Verificando que los códigos de los colores no sean negativos.
-    if r < 0 or g < 0 or b < 0:
-        print("Error")
-    elif r > 1 or g > 1 or b > 1: #Verificando que los códigos de los colores no sean mayores a 255.
-        print("Error")
-    else: #Si todo está bien, entonces se crea el framebuffer con el color que se le pasa.
-        
-        #Llenando variables globales.
-        rP = r
-        gP = g
-        bP = b
+    #Llenando variables globales.
+    rP = r
+    gP = g
+    bP = b
 
-        #color(rP, gP, bP) #Color inicial de la pantalla.
-       
-        #Rend.recibirColor(color(rP, gP, bP))
-
-        #print("Color en glClearColor: ", color(rP, gP, bP)) #Debuggeo.
 
 def glVertex(x, y): #Función que pueda cambiar el color de un punto de la pantalla. Las coordenadas x, y son relativas al viewport que definieron con glViewPort. glVertex(0, 0) cambia el color del punto en el centro del viewport, glVertex(1, 1) en la esquina superior derecha. glVertex(-1, -1) la esquina inferior izquierda
     #Ubicar un punto en el viewport.
-    global ancho, alto, equis, ye #Variables globales que se usarán para definir el área de la imagen sobre la que se va a poder dibujar el punto.
+
 
     #Bucket fill.
-
-    #Verifiando las propiedades del viewport.
-    #print(ancho, alto, equis, ye)
-    
-    
-    # #Obteniendo el centro del viewport.
-    # x0 = int(equis + (ancho/2))
-    # y0 = int(ye + (alto/2))
-
-    # #Moviendo el punto a la posición deseada.
-    # movx = x0 + int(x * (ancho/2))
-    # movy = y0 + int(y * (alto/2))
-
-    # #Debuggeo.
-    # print("Posiciones del punto trasladado ", movx, movy)
-
-    #print("Hola ", movx, movy) #Debugging.
 
     Rend.Vertex(x, y) #Creando el punto.
 
@@ -169,30 +95,12 @@ def glColor(r, g, b): #Función con la que se pueda cambiar el color con el que 
     
     global Color #Se usa para poder acceder a las variables globales.
     
-    #Convertir el valor de 0 a 1 de 0 a 255 y luego llamar al color.
-    if r < 0 or g < 0 or b < 0:
-        print("Error")
-    elif r > 1 or g > 1 or b > 1:
-        print("Error")
-    else:
-        Color = color(r, g, b) #Se manda a hacer el color con las utilidades y se setea el color.
-        print(Color)
-        Rend.colorPunto(Color)
-        #print("El color del punto es: ", Color)
+    Color = color(r, g, b) #Se manda a hacer el color con las utilidades y se setea el color.
+    print(Color)
+    Rend.colorPunto(Color)
+    #print("El color del punto es: ", Color)
 
 def glFinish(): #Función que escribe el archivo de imagen resultante.
-    #print(altoV, anchoV)
-    #Rend.write()
-    #pass
-    #print(rP, gP, bP)
-    #Llamar al método write en la clase Render.
-   # Rend.write()
 
    #Rend.punto(25, 25) #Probando el método punto.
    Rend.write() #Escribiendo el archivo.
-
-#print(glColor(1,1,1))
-
-#print(glClearColor(1,1,1))
-
-#print(glColor(0.9, 0.8, 0.87))
