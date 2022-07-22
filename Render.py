@@ -161,21 +161,21 @@ def Vertex(x, y):
 
     #Line(equis, ye) #Haciendo una línea desde el punto hasta el final de la pantalla.
 
-# def Line(x, y): #Método que dibuja una línea.
-#     #En este método se dibuja una línea en el viewport.
-#     global equis, ye #Instanciando las variables globales de las posiciones del punto.
+def Line(x, y): #Método que dibuja una línea.
+    #En este método se dibuja una línea en el viewport.
+    global equis, ye #Instanciando las variables globales de las posiciones del punto.
 
-#     #Llenando las variables globales.
-#     equis = x
-#     ye = y
+    #Llenando las variables globales.
+    equis = x
+    ye = y
 
-#     #print(equis, ye)
+    #print(equis, ye)
 
-#     #Colocar el punto en el viewport.
-#     framebuffer[equis][ye] = colorA
+    #Colocar el punto en el viewport.
+    framebuffer[equis][ye] = colorA
 
-#     #Imprimir la lista temporal.
-#     print("Lista temporal: ", lista)
+    #Imprimir la lista temporal.
+    print("Lista temporal: ", lista)
 
 
 #Método que escribe el archivo bmp.
