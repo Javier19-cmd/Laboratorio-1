@@ -178,6 +178,7 @@ def glColor(r, g, b): #Función con la que se pueda cambiar el color con el que 
         print(Color)
         Rend.colorPunto(Color)
         #print("El color del punto es: ", Color)
+        
 def glFinish(): #Función que escribe el archivo de imagen resultante.
     #print(altoV, anchoV)
     #Rend.write()

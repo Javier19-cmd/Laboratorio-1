@@ -25,7 +25,7 @@ def main():
 
     glColor(0.8, 0.2, 0.1) #Definiendo el color del punto.
     
-    #Colocando los puntos de la primera línea.
+    #Creando el primer polígono.
     glVertex(165, 380) #Definiendo el punto inicial del punto.
     glVertex(185, 360) 
     glVertex(180, 330)
@@ -35,7 +35,22 @@ def main():
     glVertex(250, 380)
     glVertex(220, 385)
     glVertex(205, 410)
-    glVertex(193, 383)
+    glVertex(193, 383) #Punto final del polígono.
+
+
+
+    #Creando el segundo polígono.
+    # glVertex(321, 335)
+    # glVertex(288, 286)
+    # glVertex(339, 251)
+    # glVertex(374, 302)
+
+
+
+    #Creando el tercer polígono.
+    # glVertex(377, 249)
+    # glVertex(411, 197)
+    # glVertex(436, 249)
 
     glFinish() #Escribiendo la ventana.
 

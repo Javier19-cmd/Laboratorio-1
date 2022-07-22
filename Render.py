@@ -16,7 +16,6 @@ equis, ye = 0, 0
 colorA = 0
 #print("Color del punto", colorA)
 
-
 #Propiedades del viewport.
 
 #Color del viewport.
@@ -93,39 +92,39 @@ def punto(x, y):
 
     framebuffer[y][x] = colorA #El color del punto es el color actual.
 
-def colorViewPort(color):
-    #En este método se setea el color del viewport.
-    global colorV #Instanciando la variable global del color del viewport.
+# def colorViewPort(color):
+#     #En este método se setea el color del viewport.
+#     global colorV #Instanciando la variable global del color del viewport.
 
-    #Llenando la variable global.
-    colorV = color
-    print("Color del viewport", colorV)
+#     #Llenando la variable global.
+#     colorV = color
+#     print("Color del viewport", colorV)
 
-#Método que hace el viewport del archivo.
-def View(posX, posY, ancho, alto):
-    #En este método se hace el viewport del archivo.
-    global Posx, Posy, Ancho, Alto, lista #Instanciando las variables globales del viewport.
+# #Método que hace el viewport del archivo.
+# def View(posX, posY, ancho, alto):
+#     #En este método se hace el viewport del archivo.
+#     global Posx, Posy, Ancho, Alto, lista #Instanciando las variables globales del viewport.
 
-    #Llenando las variables globales.
-    Posx = posX
-    Posy = posY
-    Ancho = ancho
-    Alto = alto
+#     #Llenando las variables globales.
+#     Posx = posX
+#     Posy = posY
+#     Ancho = ancho
+#     Alto = alto
 
-    #print(Posx, Posy)
+#     #print(Posx, Posy)
 
-    #Probando la lista.
-    lista = [
-            [colorV for x in range(Ancho)]
-            for y in range(Alto)
-        ]
+#     #Probando la lista.
+#     lista = [
+#             [colorV for x in range(Ancho)]
+#             for y in range(Alto)
+#         ]
 
-    #print("Lista del viewport", lista)
+#     #print("Lista del viewport", lista)
 
-    #Hacer una copia del viewport en el framebuffer con los índices iguales.
-    for i in range(Ancho):
-        for j in range(Alto):
-            framebuffer[Posx + i][Posy + j] = lista[i][j]
+#     #Hacer una copia del viewport en el framebuffer con los índices iguales.
+#     for i in range(Ancho):
+#         for j in range(Alto):
+#             framebuffer[Posx + i][Posy + j] = lista[i][j]
     
     #print(framebuffer)
 
@@ -139,7 +138,6 @@ def View(posX, posY, ancho, alto):
     #print("sss")
 
     #framebuffer[Posx][Posy] = colorV #El color del viewport es el color actual.
-
 
 def Vertex(x, y):
     #En este método se dibuja un punto en el viewport.
@@ -157,6 +155,7 @@ def Vertex(x, y):
 
     print("Coordenadas del punto: ", equis, ye)
     print("Punto: ", framebuffer[equis][ye])
+
 
 
 #Método que escribe el archivo bmp.
