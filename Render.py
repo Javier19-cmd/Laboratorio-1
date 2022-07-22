@@ -92,53 +92,6 @@ def punto(x, y):
 
     framebuffer[y][x] = colorA #El color del punto es el color actual.
 
-# def colorViewPort(color):
-#     #En este método se setea el color del viewport.
-#     global colorV #Instanciando la variable global del color del viewport.
-
-#     #Llenando la variable global.
-#     colorV = color
-#     print("Color del viewport", colorV)
-
-# #Método que hace el viewport del archivo.
-# def View(posX, posY, ancho, alto):
-#     #En este método se hace el viewport del archivo.
-#     global Posx, Posy, Ancho, Alto, lista #Instanciando las variables globales del viewport.
-
-#     #Llenando las variables globales.
-#     Posx = posX
-#     Posy = posY
-#     Ancho = ancho
-#     Alto = alto
-
-#     #print(Posx, Posy)
-
-#     #Probando la lista.
-#     lista = [
-#             [colorV for x in range(Ancho)]
-#             for y in range(Alto)
-#         ]
-
-#     #print("Lista del viewport", lista)
-
-#     #Hacer una copia del viewport en el framebuffer con los índices iguales.
-#     for i in range(Ancho):
-#         for j in range(Alto):
-#             framebuffer[Posx + i][Posy + j] = lista[i][j]
-    
-    #print(framebuffer)
-
-    #Hacer un cuadrado en el framebuffer.
-    # for x in range(Ancho):
-    #     for y in range(Alto):
-    #         #print(Posx, Posy)
-    #         #print(framebuffer[x][y])
-    #         framebuffer[x][y] = colorV
-
-    #print("sss")
-
-    #framebuffer[Posx][Posy] = colorV #El color del viewport es el color actual.
-
 def Vertex(x, y):
     #En este método se dibuja un punto en el viewport.
     global equis, ye #Instanciando las variables globales de las posiciones del punto.
@@ -173,9 +126,6 @@ def Line(x, y): #Método que dibuja una línea.
 
     #Colocar el punto en el viewport.
     framebuffer[equis][ye] = colorA
-
-    #Imprimir la lista temporal.
-    print("Lista temporal: ", lista)
 
 
 #Método que escribe el archivo bmp.
@@ -219,14 +169,6 @@ def write():
             for y in range(anchoP):
                 f.write(framebuffer[y][x])
 
-        #print(framebuffer)
-        #print("Lista temporal en write", lista)
-    
-        # framebuffer[Posx][Posy] = lista #El color del punto es el color actual.
-        # print("Framebuffer con el viewport cargado", framebuffer)
-        #Aquí encima se escribe el cuadrado para meter el punto.
-        #View(Posx, Posy, Ancho, Alto)
-        #punto(equis, ye) #Aquí se tiene que escribir el punto del archivo.
 
 
         f.close() #Cerrando el archivo que se escribió.
