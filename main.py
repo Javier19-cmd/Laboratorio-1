@@ -37,6 +37,9 @@ def main():
     glVertex(205, 410)
     glVertex(193, 383) #Punto final del polígono.
 
+    #Creando las líneas del polígono.
+    #glLine(165, 300, 185, 360) #Definiendo la línea.
+
 
 
     #Creando el segundo polígono.

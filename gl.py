@@ -147,22 +147,32 @@ def glVertex(x, y): #Función que pueda cambiar el color de un punto de la panta
     #Verifiando las propiedades del viewport.
     #print(ancho, alto, equis, ye)
     
-    """
-    #Obteniendo el centro del viewport.
-    x0 = int(equis + (ancho/2))
-    y0 = int(ye + (alto/2))
+    
+    # #Obteniendo el centro del viewport.
+    # x0 = int(equis + (ancho/2))
+    # y0 = int(ye + (alto/2))
 
-    #Moviendo el punto a la posición deseada.
-    movx = x0 + int(x * (ancho/2))
-    movy = y0 + int(y * (alto/2))
+    # #Moviendo el punto a la posición deseada.
+    # movx = x0 + int(x * (ancho/2))
+    # movy = y0 + int(y * (alto/2))
 
-    #Debuggeo.
-    print("Posiciones del punto trasladado ", movx, movy)
+    # #Debuggeo.
+    # print("Posiciones del punto trasladado ", movx, movy)
 
     #print("Hola ", movx, movy) #Debugging.
-    """
+    
 
     Rend.Vertex(x, y) #Creando el punto.
+
+def glLine(x0, y0, x1, y1):
+    #Ubicar la línea en el framebuffer.
+
+    dy = abs(y1 - y0) #Calculando la diferencia de y.
+    dx = abs(x1 - x0) #Calculando la diferencia de x.
+
+    print("Cambios de x: ", dx, "Cambios de y: ", dy)
+
+    #Verificando que la línea no sea vertical.
 
 def glColor(r, g, b): #Función con la que se pueda cambiar el color con el que funciona glVertex(). Los parámetros deben ser números en el rango de 0 a 1.
     
@@ -178,7 +188,7 @@ def glColor(r, g, b): #Función con la que se pueda cambiar el color con el que 
         print(Color)
         Rend.colorPunto(Color)
         #print("El color del punto es: ", Color)
-        
+
 def glFinish(): #Función que escribe el archivo de imagen resultante.
     #print(altoV, anchoV)
     #Rend.write()
