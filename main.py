@@ -75,8 +75,21 @@ def main():
 
     #Recorriendo la matriz p1.
     for i in range(len(m)):
+        #Aquí se ponen los puntos en el mapa de bits.
         #print(p1[i][0], p1[i][1])
         glVertex(m[i][0], m[i][1])
+
+    #Haciendo línea entre los puntos.
+    #line(165, 380, 195, 360)
+    line(165, 380, 185, 360)
+    line(180, 330, 185, 360)
+    line(185, 360, 180, 330)
+    line(180, 330, 207, 345)
+    line(233, 330, 230, 360)
+    line(230, 360, 250, 380)
+    line(250, 380, 220, 385)
+    line(220, 385, 205, 410)
+    line(205, 410, 193, 383)
 
     
 

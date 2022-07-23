@@ -86,10 +86,61 @@ def glClearColor(r, g, b): #Función con la que se pueda cambiar el color con el
 def glVertex(x, y): #Función que pueda cambiar el color de un punto de la pantalla. Las coordenadas x, y son relativas al viewport que definieron con glViewPort. glVertex(0, 0) cambia el color del punto en el centro del viewport, glVertex(1, 1) en la esquina superior derecha. glVertex(-1, -1) la esquina inferior izquierda
     #Ubicar un punto en el viewport.
 
-
     #Bucket fill.
 
     Rend.Vertex(x, y) #Creando el punto.
+
+def line(x0,y0,x1, y1):
+
+    #Función que dibuja una línea.
+    dY = y1 - y0
+    dX = x1 - x0
+
+    #Incremento con avances inclinados.
+    if dY >= 0:
+        IncYi = 1
+    else: 
+        IncYi = -1
+    
+    if dX >= 0:
+        IncXi = 1
+    else:
+        IncXi = -1
+    
+    #Incremento con avances rectos.
+    if dX >= dY:
+        IncYr = 0
+        IncXr = IncXi
+    else:
+        IncXr = 0
+        IncYr = IncYi
+
+        #Haciendo cambio de variables.
+        k = dX
+        dX = dY
+        dY = k
+
+    #Inicialización de valores.
+    Equis = x0
+    Ye = y0
+    avR = 2 * dY
+    av = avR - dX
+    avI = av - dX
+
+    #Bucle para dibujar la línea.
+    for i in range(x0, x1 + 1):
+        Rend.Vertex(Equis, Ye)
+        if av >= 0:
+            Equis = Equis + IncXi
+            Ye = Ye + IncYi
+            av = av + avI
+            Rend.Vertex(Equis, Ye)
+        else:
+            Equis = Equis + IncXr
+            Ye = Ye + IncYr
+            av = av + avR
+            Rend.Vertex(Ye, Equis)
+    
 
 def glColor(r, g, b): #Función con la que se pueda cambiar el color con el que funciona glVertex(). Los parámetros deben ser números en el rango de 0 a 1.
     
