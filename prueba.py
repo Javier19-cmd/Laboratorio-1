@@ -50,5 +50,5 @@ def flood_fill(x, y, old_color, new_color):
 
 print_matrix(m) #Se imprime la matriz al inicio.
 flood_fill(0, 0, 0, 204) #Se llena la matriz.
-print("Haciendo el flood fill con '3'...")
+print("Haciendo el flood fill con '204'...")
 print_matrix(m) #Se imprime la matriz al final, luego del flood fill.

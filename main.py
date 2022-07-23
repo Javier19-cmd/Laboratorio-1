@@ -1,18 +1,32 @@
 from gl import *
 
 #Matriz del primer polígono.
-m =[
-    [0, 0, 165, 380, 0, 0, 0],
-    [0, 0, 0, 185, 360, 0, 0],
-    [0, 0, 180, 330, 0, 0, 0],
-    [0, 207, 345, 0, 0, 0, 0],
-    [0, 0, 233, 330, 0, 0, 0],
-    [0, 0, 230, 360, 0, 0, 0],
-    [0, 0, 0, 250, 380, 0, 0],
-    [0, 220, 385, 0, 0, 0, 0],
-    [0, 0, 0, 205, 410, 0, 0],
-    [193, 383, 0, 0, 0, 0, 0],
-    ] #Matriz de puntos.
+
+m = [
+    [165, 380],
+    [185, 360],
+    [180, 330],
+    [207, 345],
+    [233, 330],
+    [230, 360],
+    [250, 380],
+    [220, 385],
+    [205, 410],
+    [193, 383],
+]
+
+# m =[
+#     [165, 380, 0, 0, 0],
+#     [0, 0, 0, 185, 360, 0, 0],
+#     [0, 0, 180, 330, 0, 0, 0],
+#     [0, 207, 345, 0, 0, 0, 0],
+#     [0, 0, 233, 330, 0, 0, 0],
+#     [0, 0, 230, 360, 0, 0, 0],
+#     [0, 0, 0, 250, 380, 0, 0],
+#     [0, 220, 385, 0, 0, 0, 0],
+#     [0, 0, 0, 205, 410, 0, 0],
+#     [193, 383, 0, 0, 0, 0, 0],
+#     ] #Matriz de puntos.
 
 # pl1 = [
 #     [165, 380, 0, 0, 0, 0, 0, 0], #Primera fila y primera columna. (Primer punto de la primera fila)
@@ -49,15 +63,22 @@ def main():
     # glVertex(205, 410)
     # glVertex(193, 383) #Punto final del polígono.
 
-    #Recorrer la matriz de puntos.
+    # #Recorrer la matriz de puntos.
+    # for i in range(len(m)):
+    #     for j in range(len(m[i])):
+    #         #print("m[i][j] = ", m[i][j])
+    #         if m[i][j] != 0:
+    #             #print("Hola")
+    #             #print(m[i][j - 1], m[i - 1][j])	
+    #             #print("Después del if: ", m[i][j], m[i][j + 1])
+    #             glVertex(m[i][j], m[i][j + 1])
+
+    #Recorriendo la matriz p1.
     for i in range(len(m)):
-        for j in range(len(m[i])):
-            print("m[i][j] = ", m[i][j])
-            if m[i][j] > 0:
-                print("Hola")
-                #print(m[i][j - 1], m[i - 1][j])	
-                print("Después del if: ", m[i][j], m[i][j + 1])
-                glVertex(m[i][j], m[i][j + 1])
+        #print(p1[i][0], p1[i][1])
+        glVertex(m[i][0], m[i][1])
+
+    
 
     #Creando el segundo polígono.
     # glVertex(321, 335)

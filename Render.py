@@ -109,8 +109,8 @@ def Vertex(x, y):
     lista.append([equis, ye])
 
 
-    print("Coordenadas del punto: ", equis, ye)
-    print("Punto: ", framebuffer[equis][ye])
+    print("Coordenadas del punto en el framebuffer: ", equis, ye)
+    print("Color del punto: ", framebuffer[equis][ye])
 
     #Line(equis, ye) #Haciendo una línea desde el punto hasta el final de la pantalla.
 
