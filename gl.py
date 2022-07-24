@@ -143,7 +143,7 @@ def glColor(r, g, b): #Función con la que se pueda cambiar el color con el que 
 
 def flood(): #Método que llama al flood fill.
     #Bucket fill.
-    Rend.flood_recursive()
+    Rend.f()
 
 def glFinish(): #Función que escribe el archivo de imagen resultante.
 

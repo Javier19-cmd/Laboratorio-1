@@ -82,13 +82,13 @@ figura4 = [
 
 def main():
 
-    glCreateWindow(900, 900) #Creando la ventana.
-    glClearColor(255, 255, 255) #Llenando el color de la pantalla.
+    glCreateWindow(800, 800) #Creando la ventana.
+    glClearColor(0, 0, 0) #Llenando el color de la pantalla.
     glClear() #Llenando el mapa de bits con el color que se le pasa.
 
     #Se comentó la instancia que está arriba de f.close() para debuggear el glViewPort().
 
-    glColor(204, 0, 0) #Definiendo el color del punto.
+    glColor(255, 100, 0) #Definiendo el color del punto.
     
     #Creando el primer polígono.
     # glVertex(165, 380) #Definiendo el punto inicial del punto.
@@ -181,7 +181,7 @@ def main():
     line(517, 144, 466, 180)
     line(466, 180, 413, 177) #Final de la figura.
 
-    flood() #Llamando a la función flood().
+    #flood()
 
     glFinish() #Escribiendo la ventana.
 

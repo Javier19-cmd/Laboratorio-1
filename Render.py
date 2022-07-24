@@ -25,6 +25,8 @@ equis, ye = 0, 0
 colorA = 0
 #print("Color del punto", colorA)
 
+colorN = color(30, 50, 80)
+
 #Propiedades del viewport.
 
 #Color del viewport.
@@ -87,36 +89,6 @@ def colorPunto(color):
     colorA = color
     #print("Color del punto", colorA)
 
-def flood_recursive(): #Llenado de las figuras.
-    
-    global framebuffer
-
-    def flood_fill(x ,y, old, new):
-        # we need the x and y of the start position, the old value,
-        # and the new value
-        # the flood fill has 4 parts
-        # firstly, make sure the x and y are inbounds
-        if x < 0 or x >= len(framebuffer[0]) or y < 0 or y >= len(framebuffer):
-            return
-        # secondly, check if the current position equals the old value
-        if framebuffer[y][x] != old:
-            return
-        
-        # thirdly, set the current position to the new value
-        framebuffer[y][x] = new
-
-        print(framebuffer[y][x])
-
-        # fourthly, attempt to fill the neighboring positions
-        flood_fill(x+1, y, old, new)
-        flood_fill(x-1, y, old, new)
-        flood_fill(x, y+1, old, new)
-        flood_fill(x, y-1, old, new)
-
-    an = random.randint(0, anchoP)
-    al = random.randint(0, altoP)
-    flood_fill(an, al, colorP, colorA)
-    
 
 def Vertex(x, y):
     #En este método se dibuja un punto en el viewport.
@@ -131,6 +103,41 @@ def Vertex(x, y):
     #Colocar el punto en el viewport.
     framebuffer[equis][ye] = colorA
     #print("Color del punto", colorA)
+
+
+def f():
+    def flood_recursive(matrix):
+        
+        width = len(matrix[0])
+        height = len(matrix)
+        
+        def fill(x,y,start_color,color_to_update):
+            #if the square is not the same color as the starting point
+            if matrix[x][y] != start_color:
+                return
+            #if the square is not the new color
+            elif matrix[x][y] == color_to_update:
+                return
+            else:
+                #update the color of the current square to the replacement color
+                matrix[x][y] = color_to_update
+                #print("Colores:", matrix[x][y])
+                neighbors = [(x-1,y),(x+1,y),(x-1,y-1),(x+1,y+1),(x-1,y+1),(x+1,y-1),(x,y-1),(x,y+1)]
+                for n in neighbors:
+                    if 0 <= n[0] <= width - 1 and 0 <= n[1] <= height - 1:
+                        fill(n[0],n[1],start_color,color_to_update)
+            
+                print("Coordenadas:", x, y)
+
+        #pick a random starting point
+        start_x = random.randint(0,width-1)
+        start_y = random.randint(0,height-1)
+        start_color = matrix[start_x][start_y]
+        color_to_update = colorN
+        fill(start_x,start_y,start_color,color_to_update)
+        #return matrix
+
+    flood_recursive(framebuffer)
 
 
 #Método que escribe el archivo bmp.

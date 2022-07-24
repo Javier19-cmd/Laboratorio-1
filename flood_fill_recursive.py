@@ -18,11 +18,12 @@ def flood_recursive(matrix):
 	height = len(matrix[0])
 	def fill(x,y,start_color,color_to_update):
 		#if the square is not the same color as the starting point
-		if matrix[y][x] != start_color:
+		if matrix[x][y] != start_color:
 			return
 		#if the square is not the new color
-		elif matrix[y][x] == color_to_update:
-			print("Color a actualizar: ", color_to_update)
+		elif matrix[x][y] == color_to_update:
+    			#print("Color a actualizar: ", color_to_update)
+			return
 		else:
 			#update the color of the current square to the replacement color
 			matrix[x][y] = color_to_update
@@ -35,7 +36,7 @@ def flood_recursive(matrix):
 	start_y = random.randint(0,height-1)
 	start_color = matrix[start_x][start_y]
 	fill(start_x,start_y,start_color,9)
-	#return matrix
+	return matrix
 
 flood_recursive(m)
 print(m)
