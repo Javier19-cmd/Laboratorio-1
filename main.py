@@ -57,9 +57,32 @@ figura3 = [
     [436, 249]
 ]
 
+#Matriz del cuarto polígono.
+figura4 = [
+    [413, 177],
+    [448, 159],
+    [502, 88],
+    [553, 53],
+    [535, 36],
+    [676, 37],
+    [660, 53],
+    [750, 145],
+    [761, 179],
+    [672, 192],
+    [659, 214],
+    [615, 214],
+    [632, 230],
+    [580, 230],
+    [597, 215],
+    [552, 214],
+    [517, 144],
+    [466, 180]
+
+]
+
 def main():
 
-    glCreateWindow(500, 500) #Creando la ventana.
+    glCreateWindow(900, 900) #Creando la ventana.
     glClearColor(255, 255, 255) #Llenando el color de la pantalla.
     glClear() #Llenando el mapa de bits con el color que se le pasa.
 
@@ -122,19 +145,41 @@ def main():
     line(374, 302, 321, 335) #Final de la figura.
 
     #Creando el tercer polígono.
-        # #Recorriendo la matriz figura2.
+    # #Recorriendo la matriz figura3.
     for i in range(len(figura3)):
         #Aquí se ponen los puntos en el mapa de bits.
         #print(p1[i][0], p1[i][1])
         glVertex(figura3[i][0], figura3[i][1])
 
-    #Uniendo los puntos.
+    #Uniendo los puntos del tercer polígono.
     line(377, 249, 411, 197) #Inicio de la figura.
     line(411, 197, 436, 249)
     line(436, 249, 377, 249) #Final de la figura.
 
+    # #Recorriendo la matriz figura3.
+    for i in range(len(figura4)):
+        #Aquí se ponen los puntos en el mapa de bits.
+        #print(p1[i][0], p1[i][1])
+        glVertex(figura4[i][0], figura4[i][1])
 
-
+    line(413, 177, 448, 159) #Inicio de la figura.
+    line(448, 159, 502, 88)
+    line(502, 88, 553, 53)
+    line(553, 53, 535, 36)
+    line(535, 36, 676, 37)
+    line(676, 37, 660, 53)
+    line(660, 53, 750, 145)
+    line(750, 145, 761, 179)
+    line(761, 179, 672, 192)
+    line(672, 192, 659, 214)
+    line(659, 214, 615, 214)
+    line(615, 214, 632, 230)
+    line(632, 230, 580, 230)
+    line(580, 230, 597, 215)
+    line(597, 215, 552, 214)
+    line(552, 214, 517, 144)
+    line(517, 144, 466, 180)
+    line(466, 180, 413, 177) #Final de la figura.
 
     glFinish() #Escribiendo la ventana.
 
