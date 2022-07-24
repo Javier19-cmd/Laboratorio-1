@@ -82,6 +82,9 @@ figura4 = [
 
 def main():
 
+    colorP = color(0,0,0)
+    colorP2 = color(255,100,0)
+
     glCreateWindow(800, 800) #Creando la ventana.
     glClearColor(0, 0, 0) #Llenando el color de la pantalla.
     glClear() #Llenando el mapa de bits con el color que se le pasa.
@@ -130,6 +133,9 @@ def main():
     line(205, 410, 193, 383)
     line(193, 383, 165, 380) #Final de la figura.
 
+    #Llamar a la función que llena la figura.
+    flood(220, 350, colorP, colorP2)
+    
     #Creando el segundo polígono.
 
     # #Recorriendo la matriz figura2.
@@ -144,6 +150,10 @@ def main():
     line(339, 251, 374, 302)
     line(374, 302, 321, 335) #Final de la figura.
 
+    #glVertex(325, 300)
+
+    flood(325, 300, colorP, colorP2)
+
     #Creando el tercer polígono.
     # #Recorriendo la matriz figura3.
     for i in range(len(figura3)):
@@ -155,6 +165,9 @@ def main():
     line(377, 249, 411, 197) #Inicio de la figura.
     line(411, 197, 436, 249)
     line(436, 249, 377, 249) #Final de la figura.
+
+    #glVertex(410, 220)
+    flood(410, 220, colorP, colorP2)
 
     # #Recorriendo la matriz figura3.
     for i in range(len(figura4)):
@@ -181,7 +194,6 @@ def main():
     line(517, 144, 466, 180)
     line(466, 180, 413, 177) #Final de la figura.
 
-    #flood()
 
     glFinish() #Escribiendo la ventana.
 

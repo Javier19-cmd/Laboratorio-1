@@ -4,10 +4,12 @@ import sys
 
 """
 1. Modificar la recursión de Python:
-   https://www.codingem.com/python-maximum-recursion-depth/#:~:text=The%20recursion%20depth%20limit%20in%20Python%20is%20by%20default%201000,setrecursionlimit()%20function.
+   https://www.geeksforgeeks.org/python-handling-recursion-limit/#:~:text=When%20you%20execute%20a%20recursive,on%20large%20inputs.
+2. Flood fill: 
+    http://inventwithpython.com/blog/2011/08/11/recursion-explained-with-the-flood-fill-algorithm-and-zombies-and-cats/
 """
 
-sys.setrecursionlimit(5000)
+sys.setrecursionlimit(10**6)
 
 #Variables globales.
 
@@ -89,6 +91,23 @@ def colorPunto(color):
     colorA = color
     #print("Color del punto", colorA)
 
+def flood_fill(x, y, old, new):
+    #Se necesita la posición x y y inicial, el valor del color antiguo y el nuevo color.
+
+    # assume surface is a 2D image and surface[x][y] is the color at x, y.
+
+    if framebuffer[x][y] != old: # the base case
+        return
+
+    framebuffer[x][y] = new
+
+    flood_fill(x + 1, y, old, new) # right
+
+    flood_fill(x - 1, y, old, new) # left
+
+    flood_fill(x, y + 1, old, new) # down
+
+    flood_fill(x, y - 1, old, new) # up
 
 def Vertex(x, y):
     #En este método se dibuja un punto en el viewport.
@@ -105,46 +124,11 @@ def Vertex(x, y):
     #print("Color del punto", colorA)
 
 
-def f():
-    def flood_recursive(matrix):
-        
-        width = len(matrix[0])
-        height = len(matrix)
-        
-        def fill(x,y,start_color,color_to_update):
-            #if the square is not the same color as the starting point
-            if matrix[x][y] != start_color:
-                return
-            #if the square is not the new color
-            elif matrix[x][y] == color_to_update:
-                return
-            else:
-                #update the color of the current square to the replacement color
-                matrix[x][y] = color_to_update
-                #print("Colores:", matrix[x][y])
-                neighbors = [(x-1,y),(x+1,y),(x-1,y-1),(x+1,y+1),(x-1,y+1),(x+1,y-1),(x,y-1),(x,y+1)]
-                for n in neighbors:
-                    if 0 <= n[0] <= width - 1 and 0 <= n[1] <= height - 1:
-                        fill(n[0],n[1],start_color,color_to_update)
-            
-                print("Coordenadas:", x, y)
-
-        #pick a random starting point
-        start_x = random.randint(0,width-1)
-        start_y = random.randint(0,height-1)
-        start_color = matrix[start_x][start_y]
-        color_to_update = colorN
-        fill(start_x,start_y,start_color,color_to_update)
-        #return matrix
-
-    flood_recursive(framebuffer)
-
-
 #Método que escribe el archivo bmp.
 def write():
         
         #Se abre el archivo con la forma de bw.
-        f = open("SR1.bmp", "bw")
+        f = open("Lab1.bmp", "bw")
 
         #Se escribe el encabezado del archivo.
 
