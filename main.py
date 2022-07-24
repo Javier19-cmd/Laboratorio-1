@@ -181,6 +181,8 @@ def main():
     line(517, 144, 466, 180)
     line(466, 180, 413, 177) #Final de la figura.
 
+    flood() #Llamando a la función flood().
+
     glFinish() #Escribiendo la ventana.
 
 main()

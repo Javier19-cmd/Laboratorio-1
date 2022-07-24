@@ -1,4 +1,13 @@
 from utilidades import *
+import random
+import sys
+
+"""
+1. Modificar la recursión de Python:
+   https://www.codingem.com/python-maximum-recursion-depth/#:~:text=The%20recursion%20depth%20limit%20in%20Python%20is%20by%20default%201000,setrecursionlimit()%20function.
+"""
+
+sys.setrecursionlimit(5000)
 
 #Variables globales.
 
@@ -78,19 +87,36 @@ def colorPunto(color):
     colorA = color
     #print("Color del punto", colorA)
 
-#Método que dibuja un punto.
-def punto(x, y):
-    #En este método se dibuja un punto en la pantalla.
-    global equis, ye #Instanciando las variables globales de las posiciones del punto.
+def flood_recursive(): #Llenado de las figuras.
+    
+    global framebuffer
 
-    #Llenando las variables globales.
-    equis = x
-    ye = y
+    def flood_fill(x ,y, old, new):
+        # we need the x and y of the start position, the old value,
+        # and the new value
+        # the flood fill has 4 parts
+        # firstly, make sure the x and y are inbounds
+        if x < 0 or x >= len(framebuffer[0]) or y < 0 or y >= len(framebuffer):
+            return
+        # secondly, check if the current position equals the old value
+        if framebuffer[y][x] != old:
+            return
+        
+        # thirdly, set the current position to the new value
+        framebuffer[y][x] = new
 
-    #Esta función dibuja un punto en la pantalla.
-    #print(framebufobsfer[x][y])
+        print(framebuffer[y][x])
 
-    framebuffer[y][x] = colorA #El color del punto es el color actual.
+        # fourthly, attempt to fill the neighboring positions
+        flood_fill(x+1, y, old, new)
+        flood_fill(x-1, y, old, new)
+        flood_fill(x, y+1, old, new)
+        flood_fill(x, y-1, old, new)
+
+    an = random.randint(0, anchoP)
+    al = random.randint(0, altoP)
+    flood_fill(an, al, colorP, colorA)
+    
 
 def Vertex(x, y):
     #En este método se dibuja un punto en el viewport.
@@ -104,28 +130,7 @@ def Vertex(x, y):
 
     #Colocar el punto en el viewport.
     framebuffer[equis][ye] = colorA
-
-    #Llenando la lista temporal.
-    lista.append([equis, ye])
-
-
-    #print("Coordenadas del punto en el framebuffer: ", equis, ye)
-    #print("Color del punto: ", framebuffer[equis][ye])
-
-    #Line(equis, ye) #Haciendo una línea desde el punto hasta el final de la pantalla.
-
-def Line(x, y): #Método que dibuja una línea.
-    #En este método se dibuja una línea en el viewport.
-    global equis, ye #Instanciando las variables globales de las posiciones del punto.
-
-    #Llenando las variables globales.
-    equis = x
-    ye = y
-
-    #print(equis, ye)
-
-    #Colocar el punto en el viewport.
-    framebuffer[ye][equis] = colorA
+    #print("Color del punto", colorA)
 
 
 #Método que escribe el archivo bmp.

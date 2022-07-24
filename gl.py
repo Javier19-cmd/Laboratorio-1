@@ -141,6 +141,10 @@ def glColor(r, g, b): #Función con la que se pueda cambiar el color con el que 
     Rend.colorPunto(Color)
     #print("El color del punto es: ", Color)
 
+def flood(): #Método que llama al flood fill.
+    #Bucket fill.
+    Rend.flood_recursive()
+
 def glFinish(): #Función que escribe el archivo de imagen resultante.
 
    #Rend.punto(25, 25) #Probando el método punto.
