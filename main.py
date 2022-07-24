@@ -73,7 +73,7 @@ def main():
     #             #print("Después del if: ", m[i][j], m[i][j + 1])
     #             glVertex(m[i][j], m[i][j + 1])
 
-    #Recorriendo la matriz p1.
+    # #Recorriendo la matriz p1.
     for i in range(len(m)):
         #Aquí se ponen los puntos en el mapa de bits.
         #print(p1[i][0], p1[i][1])

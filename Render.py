@@ -125,7 +125,7 @@ def Line(x, y): #Método que dibuja una línea.
     #print(equis, ye)
 
     #Colocar el punto en el viewport.
-    framebuffer[equis][ye] = colorA
+    framebuffer[ye][equis] = colorA
 
 
 #Método que escribe el archivo bmp.

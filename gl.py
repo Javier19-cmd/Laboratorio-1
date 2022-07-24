@@ -91,56 +91,46 @@ def glVertex(x, y): #Función que pueda cambiar el color de un punto de la panta
     Rend.Vertex(x, y) #Creando el punto.
 
 def line(x0,y0,x1, y1):
-
-    #Función que dibuja una línea.
-    dY = y1 - y0
-    dX = x1 - x0
-
-    #Incremento con avances inclinados.
-    if dY >= 0:
-        IncYi = 1
-    else: 
-        IncYi = -1
     
-    if dX >= 0:
-        IncXi = 1
-    else:
-        IncXi = -1
+    #Calculando cambios.
+    dx = abs(x1 - x0)
+    dy = abs(y1 - y0)
+
+    print("Cambio en x y cambio en y: ", dx, dy)
+
+    steep = dy > dx #Variable que mide si dy es más grande que dx.
+
+    if steep: #Si dy es mayor que dx, entonces se cambia el valor de x y y.
+        x0, y0 = y0, x0
+        x1, y1 = y1, x1
     
-    #Incremento con avances rectos.
-    if dX >= dY:
-        IncYr = 0
-        IncXr = IncXi
-    else:
-        IncXr = 0
-        IncYr = IncYi
+    if x0 > x1: #Si x0 es mayor que x1, entonces se cambian los valores de x0 y x1.
+        x0, x1 = x1, x0
+        y0, y1 = y1, y0
 
-        #Haciendo cambio de variables.
-        k = dX
-        dX = dY
-        dY = k
+    #Calculando los nuevos cambios.
+    dx = abs(x1 - x0)
+    dy = abs(y1 - y0)
 
-    #Inicialización de valores.
-    Equis = x0
-    Ye = y0
-    avR = 2 * dY
-    av = avR - dX
-    avI = av - dX
+    #print("Cambio en x y cambio en y: ", dx, dy)
+    offset = 0 #Offset de la línea.
+    threshold = dx #Variable que mide el cambio en x.
+    y = y0 #Variable que mide la coordenada y.
 
-    #Bucle para dibujar la línea.
-    for i in range(x0, x1 + 1):
-        Rend.Vertex(Equis, Ye)
-        if av >= 0:
-            Equis = Equis + IncXi
-            Ye = Ye + IncYi
-            av = av + avI
-            Rend.Vertex(Equis, Ye)
-        else:
-            Equis = Equis + IncXr
-            Ye = Ye + IncYr
-            av = av + avR
-            Rend.Vertex(Ye, Equis)
-    
+    #Dibujando la línea.
+    for x in range(x0, x1): #Recorriendo el rango de x0 a x1.
+        offset += dy * 2 #Incrementando el offset.
+        if offset >= threshold:
+            y += 1 if y0 < y1 else -1
+            threshold += 2 * dx #Incrementando el threshold.
+        
+        print("Punto inicual: ", x0, y0)
+        print("Punto final: ", x1, y1)
+        
+        if steep: #Si la línea es vertical, entonces se cambia el valor de x y y.
+            Rend.Vertex(y, x) #Creando la línea.
+        else: #Si la línea es horizontal, entonces se cambia el valor de x y y.
+            Rend.Vertex(x, y) #Creando la línea.
 
 def glColor(r, g, b): #Función con la que se pueda cambiar el color con el que funciona glVertex(). Los parámetros deben ser números en el rango de 0 a 1.
     
