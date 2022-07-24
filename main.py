@@ -80,10 +80,20 @@ figura4 = [
 
 ]
 
+#Matriz del quinto polígono.
+figura5 = [
+    [682, 175],
+    [708, 120],
+    [735, 148],
+    [739, 170]
+]
+
+
 def main():
 
     colorP = color(0,0,0)
     colorP2 = color(255,100,0)
+    colorP3 = color(0,255,0)
 
     glCreateWindow(800, 800) #Creando la ventana.
     glClearColor(0, 0, 0) #Llenando el color de la pantalla.
@@ -194,6 +204,24 @@ def main():
     line(517, 144, 466, 180)
     line(466, 180, 413, 177) #Final de la figura.
 
+    #glVertex(592, 190)
+    #flood(592, 190, colorP, colorP2)
+    flood(592, 190, colorP, colorP3)
+
+    #Creando el cuarto polígono.
+    # #Recorriendo la matriz figura3.
+    for i in range(len(figura5)):
+        #Aquí se ponen los puntos en el mapa de bits.
+        #print(p1[i][0], p1[i][1])
+        glVertex(figura5[i][0], figura5[i][1])
+    
+    line(682, 175, 708, 120) #Inicio de la figura.
+    line(708, 120, 735, 148)
+    line(735, 148, 739, 170)
+    line(739, 170, 682, 175) #Final de la figura.
+
+    #glVertex(720, 160)
+    flood(720, 160, colorP, colorP3)
 
     glFinish() #Escribiendo la ventana.
 
