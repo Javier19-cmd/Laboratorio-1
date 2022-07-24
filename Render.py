@@ -9,7 +9,7 @@ import sys
     http://inventwithpython.com/blog/2011/08/11/recursion-explained-with-the-flood-fill-algorithm-and-zombies-and-cats/
 """
 
-sys.setrecursionlimit(10**6)
+sys.setrecursionlimit(10**9)
 
 #Variables globales.
 
