@@ -90,13 +90,13 @@ def glVertex(x, y): #Función que pueda cambiar el color de un punto de la panta
 
     Rend.Vertex(x, y) #Creando el punto.
 
-def line(x0,y0,x1, y1):
+def line(x0,y0,x1, y1): #Función que pueda dibujar una línea.
     
     #Calculando cambios.
     dx = abs(x1 - x0)
     dy = abs(y1 - y0)
 
-    print("Cambio en x y cambio en y: ", dx, dy)
+    #print("Cambio en x y cambio en y: ", dx, dy)
 
     steep = dy > dx #Variable que mide si dy es más grande que dx.
 
@@ -124,8 +124,8 @@ def line(x0,y0,x1, y1):
             y += 1 if y0 < y1 else -1
             threshold += 2 * dx #Incrementando el threshold.
         
-        print("Punto inicual: ", x0, y0)
-        print("Punto final: ", x1, y1)
+        #print("Punto inicual: ", x0, y0)
+        #print("Punto final: ", x1, y1)
         
         if steep: #Si la línea es vertical, entonces se cambia el valor de x y y.
             Rend.Vertex(y, x) #Creando la línea.

@@ -80,31 +80,40 @@ def main():
         glVertex(m[i][0], m[i][1])
 
     #Haciendo línea entre los puntos.
-    #line(165, 380, 195, 360)
-    line(165, 380, 185, 360)
-    line(180, 330, 185, 360)
+    line(165, 380, 185, 360) #Inicio de la figura.
     line(185, 360, 180, 330)
     line(180, 330, 207, 345)
+    line(207, 345, 233, 330)
     line(233, 330, 230, 360)
     line(230, 360, 250, 380)
     line(250, 380, 220, 385)
     line(220, 385, 205, 410)
     line(205, 410, 193, 383)
+    line(193, 383, 165, 380) #Final de la figura.
 
     
 
     #Creando el segundo polígono.
-    # glVertex(321, 335)
-    # glVertex(288, 286)
-    # glVertex(339, 251)
-    # glVertex(374, 302)
+    glVertex(321, 335)
+    glVertex(288, 286)
+    glVertex(339, 251)
+    glVertex(374, 302)
 
-
+    #Uniendo los puntos.
+    line(321, 335, 288, 286) #Inicio de la figura.
+    line(288, 286, 339, 251)
+    line(339, 251, 374, 302)
+    line(374, 302, 321, 335) #Final de la figura.
 
     #Creando el tercer polígono.
-    # glVertex(377, 249)
-    # glVertex(411, 197)
-    # glVertex(436, 249)
+    glVertex(377, 249)
+    glVertex(411, 197)
+    glVertex(436, 249)
+
+    #Uniendo los puntos.
+    line(377, 249, 411, 197) #Inicio de la figura.
+    line(411, 197, 436, 249)
+    line(436, 249, 377, 249) #Final de la figura.
 
     glFinish() #Escribiendo la ventana.
 
