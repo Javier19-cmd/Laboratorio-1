@@ -92,13 +92,12 @@ figura5 = [
 def main():
 
     colorP = color(0,0,0)
-    colorP2 = color(210,250,10)
-    colorP3 = color(0,251,0)
+    colorP2 = color(255,100,0)
+    colorP3 = color(92, 150, 25)
 
     glCreateWindow(800, 800) #Creando la ventana.
     glClearColor(0, 0, 0) #Llenando el color de la pantalla.
     glClear() #Llenando el mapa de bits con el color que se le pasa.
-
     #Se comentó la instancia que está arriba de f.close() para debuggear el glViewPort().
 
     glColor(255, 100, 0) #Definiendo el color del punto.
@@ -204,9 +203,13 @@ def main():
     line(517, 144, 466, 180)
     line(466, 180, 413, 177) #Final de la figura.
 
-    #glVertex(592, 190)
-    #flood(592, 190, colorP, colorP2)
-    flood(592, 190, colorP, colorP3)
+    #glVertex(540, 100)
+    #glVertex(493, 100)
+    #line(707, 54, 400, 54)
+
+    #glVertex(600, 80)
+    #flood(600, 80, colorP, colorP2)
+    #flood(592, 190, colorP, colorP3)
 
     #Creando el cuarto polígono.
     # #Recorriendo la matriz figura3.
