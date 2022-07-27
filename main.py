@@ -92,7 +92,7 @@ figura5 = [
 def main():
 
     colorP = color(0,0,0)
-    colorP2 = color(255,100,0)
+    colorP2 = color(255,90,50)
     colorP3 = color(92, 150, 25)
 
     glCreateWindow(800, 800) #Creando la ventana.
