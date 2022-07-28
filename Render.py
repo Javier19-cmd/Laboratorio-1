@@ -96,18 +96,21 @@ def flood_fill(x, y, old, new):
 
     # assume surface is a 2D image and surface[x][y] is the color at x, y.
 
-    if framebuffer[x][y] != old: # the base case
-        return
+    theStack = [(x, y)] # stack of pixels to check
 
-    framebuffer[x][y] = new
+    while len(theStack) > 0:
+        x, y = theStack.pop()
 
-    flood_fill(x + 1, y, old, new) # right
+        if framebuffer[x][y] != old:
+            continue
 
-    flood_fill(x - 1, y, old, new) # left
+        framebuffer[x][y] = new
 
-    flood_fill(x, y + 1, old, new) # down
+        theStack.append((x + 1, y))
+        theStack.append((x - 1, y))
+        theStack.append((x, y + 1))
+        theStack.append((x, y - 1))
 
-    flood_fill(x, y - 1, old, new) # up
 
 def Vertex(x, y):
     #En este método se dibuja un punto en el viewport.

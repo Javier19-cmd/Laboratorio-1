@@ -209,7 +209,7 @@ def main():
 
     #glVertex(600, 80)
     #flood(600, 80, colorP, colorP2)
-    #flood(592, 190, colorP, colorP3)
+    flood(592, 190, colorP, colorP2)
 
     #Creando el cuarto polígono.
     # #Recorriendo la matriz figura3.
@@ -224,7 +224,7 @@ def main():
     line(739, 170, 682, 175) #Final de la figura.
 
     #glVertex(720, 160)
-    flood(720, 160, colorP, colorP3)
+    flood(720, 160, colorP2, colorP3)
 
     glFinish() #Escribiendo la ventana.
 
