@@ -98,14 +98,15 @@ def flood_fill(x, y, old, new):
 
     theStack = [(x, y)] # stack of pixels to check
 
-    while len(theStack) > 0:
-        x, y = theStack.pop()
+    while len(theStack) > 0: #Verificar si la pila está vacía.
+        x, y = theStack.pop() #Sacar el último elemento de la pila.
 
-        if framebuffer[x][y] != old:
+        if framebuffer[x][y] != old: #Verificar si el color es diferente al antiguo.
             continue
 
-        framebuffer[x][y] = new
+        framebuffer[x][y] = new #Poner el nuevo color.
 
+        #Agregando los puntos vecinos a la pila.
         theStack.append((x + 1, y))
         theStack.append((x - 1, y))
         theStack.append((x, y + 1))
